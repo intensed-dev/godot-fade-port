@@ -18,12 +18,12 @@ Godot project addon that users can install without replacing their engine.
 - Added the Godot editor addon at `addons/fade_editor/`.
 - Registered a custom `EditorInspectorPlugin` for `Node3D` objects.
 - Added a three-column XYZ editor for `position`, `rotation_degrees`, and
-  `scale`, with explicit readable font sizing and field dimensions.
+  `scale`, with field dimensions that preserve Godot default typography.
 - Added red, green, and blue axis labels.
 - Reworked the editor theme around Unreal Engine's dark charcoal surfaces,
-  blue selection accents, clearer panel separation, and consistent typography.
-- Added explicit 16 px font sizes for common editor controls to avoid tiny,
-  inconsistent fallback sizes.
+  blue selection accents, and clearer panel separation.
+- Set Roboto as the preferred system font while leaving all font sizes at
+  Godot defaults. Systems without Roboto installed use Godot/system fallback fonts.
 - Added editor-shell style overrides through Godot's `EditorStyles` theme type,
   alongside the regular Control theme types.
 - Added a GitHub Actions release workflow. The user has confirmed that the
@@ -38,7 +38,7 @@ translate its design language into Godot rather than imitate every pixel:
 - Charcoal surfaces with subtle elevation differences.
 - Thin borders and clear separation between docked panels.
 - Blue active, focused, and selected states.
-- Consistent readable typography across labels, fields, menus, and tabs.
+- Roboto as the preferred typeface while preserving Godot default font sizes.
 - Compact controls with enough height and spacing to remain legible.
 - A clearer hierarchy in the Inspector and Scene Tree.
 
@@ -76,8 +76,6 @@ truth for the release package.
   sections still need screenshot-based comparison against the Unreal reference.
 - The theme must be tested at different editor scaling settings and on different
   display densities.
-- The current 16 px typography is an explicit baseline, not a claim that every
-  custom editor widget is already covered.
 - No automated visual regression test currently exists.
 
 ## Next steps
