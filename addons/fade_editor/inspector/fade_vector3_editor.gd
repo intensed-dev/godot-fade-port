@@ -8,7 +8,6 @@ const AXIS_COLORS := [
 	Color("#6b9fe3")
 ]
 
-const FIELD_FONT_SIZE := 16
 const FIELD_MIN_WIDTH := 84
 const FIELD_MIN_HEIGHT := 32
 
@@ -34,13 +33,11 @@ func setup(property_name: String) -> void:
 		axis_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		axis_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		axis_label.add_theme_color_override("font_color", AXIS_COLORS[axis])
-		axis_label.add_theme_font_size_override("font_size", FIELD_FONT_SIZE)
 		axis_box.add_child(axis_label)
 
 		var field := SpinBox.new()
 		field.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 		field.custom_minimum_size = Vector2(FIELD_MIN_WIDTH, FIELD_MIN_HEIGHT)
-		field.add_theme_font_size_override("font_size", FIELD_FONT_SIZE)
 		field.step = 0.01
 		field.rounded = false
 		field.value_changed.connect(_on_axis_changed.bind(axis))
